@@ -14,15 +14,27 @@ A lightweight, production-ready web framework built from scratch in pure Python.
 
 ```python
 from live_rocket import live_rocket
+from ObjectMapper import Model
 
-app = live_rocket()
+class MainModel(Model):
+    print()
 
-@app.get('/')
-def home(req, res):
-    res.send("Hello, Live Rocket!")
+def callable_(req):
+    print("Hello")
+app=live_rocket(middlewares=[])
 
-@app.get('/users/<int:user_id>')
-def get_user(req, res, user_id):
-    res.send(f"User ID: {user_id}")
+@app.get('/',middlewares=[callable_])
+def hello(req,res):
+    res.render("index.html")
+@app.get('/edit/<name>')
+def redirect(req,res,name):
+    print(name)
+    res.redirect(hello)   
+@app.get('/upload/<file>') 
+def hell(req,res,file):
+    print(file)
+    res.send({file})
+    
+if __name__ == "__main__":
 
-app.run(debug=True)
+    server = app.run('localhost', 8000, app)
