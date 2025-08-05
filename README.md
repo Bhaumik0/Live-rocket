@@ -9,6 +9,10 @@ A lightweight, production-ready web framework built from scratch in pure Python.
 - **WSGI Compliant** - Production server compatibility
 - **Middleware System** - Global and route-specific support
 - **Template Engine** - Built-in templating system
+- 
+## You can download for PIP using 
+
+pip install live-rocket || direct from PIP website 
 
 ## 🚀 Quick Start
 
